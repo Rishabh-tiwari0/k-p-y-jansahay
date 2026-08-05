@@ -5,44 +5,47 @@ import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 
 const facultyMembers = [
-  { name: "Abhishek Singh", image: "/images/faculty/Abhishek Singh.png" },
-  { name: "Akash Kushwaha", image: "/images/faculty/Akash Kushwaha.png" },
-  { name: "Alok Tiwari", image: "/images/faculty/Alok Tiwari.png" },
-  { name: "Aman Sachan", image: "/images/faculty/Aman Sachan.png" },
-  { name: "Amita Mishra", image: "/images/faculty/Amita Mishra.png" },
-  { name: "Anamika Prajapati", image: "/images/faculty/Anamika Prajapati.png" },
-  { name: "Anita", image: "/images/faculty/Anita.png" },
-  { name: "Anjana Mishra", image: "/images/faculty/Anjana Mishra.png" },
-  { name: "Awantika", image: "/images/faculty/Awantika.png" },
-  { name: "Dr Rajeev Mishra", image: "/images/faculty/Dr Rajeev Mishra.png" },
-  { name: "GS Sharma", image: "/images/faculty/GS Sharma.png" },
-  { name: "Hasnain", image: "/images/faculty/Hasnain.png" },
-  { name: "JN Yaday", image: "/images/faculty/JN Yaday.png" },
+  { name: "Abhishek Singh", image: "/images/faculty/Abhishek Singh.webp" },
+  { name: "Akash Kushwaha", image: "/images/faculty/Akash Kushwaha.webp" },
+  { name: "Alok Tiwari", image: "/images/faculty/Alok Tiwari.webp" },
+  { name: "Aman Sachan", image: "/images/faculty/Aman Sachan.webp" },
+  { name: "Amita Mishra", image: "/images/faculty/Amita Mishra.webp" },
+  {
+    name: "Anamika Prajapati",
+    image: "/images/faculty/Anamika Prajapati.webp",
+  },
+  { name: "Anita", image: "/images/faculty/Anita.webp" },
+  { name: "Anjana Mishra", image: "/images/faculty/Anjana Mishra.webp" },
+  { name: "Awantika", image: "/images/faculty/Awantika.webp" },
+  { name: "Dr Rajeev Mishra", image: "/images/faculty/Dr Rajeev Mishra.webp" },
+  { name: "GS Sharma", image: "/images/faculty/GS Sharma.webp" },
+  { name: "Hasnain", image: "/images/faculty/Hasnain.webp" },
+  { name: "JN Yaday", image: "/images/faculty/JN Yaday.webp" },
   {
     name: "Jagdish Rajpoot, CTO-NCC",
-    image: "/images/faculty/Jagdish Rajpoot, CTO-NCC.png",
+    image: "/images/faculty/Jagdish Rajpoot, CTO-NCC.webp",
   },
-  { name: "Jyoti Pandey", image: "/images/faculty/Jyoti Pandey.png" },
-  { name: "KP Singh", image: "/images/faculty/KP Singh.png" },
+  { name: "Jyoti Pandey", image: "/images/faculty/Jyoti Pandey.webp" },
+  { name: "KP Singh", image: "/images/faculty/KP Singh.webp" },
   { name: "Layer 0", image: "/images/faculty/Layer 0.jpg" },
-  { name: "Madhu Rajpoot", image: "/images/faculty/Madhu Rajpoot.png" },
-  { name: "Mahima Gupta", image: "/images/faculty/Mahima Gupta.png" },
-  { name: "Mayank Shukla", image: "/images/faculty/Mayank Shukla.png" },
-  { name: "Poonam Mishra", image: "/images/faculty/Poonam Mishra.png" },
-  { name: "Poonam Srivastav", image: "/images/faculty/Poonam Srivastav.png" },
-  { name: "Ram Avtar Verma", image: "/images/faculty/Ram Avtar Verma.png" },
-  { name: "RinkiPal", image: "/images/faculty/RinkiPal.png" },
-  { name: "Ruchi Tripathi", image: "/images/faculty/Ruchi Tripathi.png" },
-  { name: "SP Savita", image: "/images/faculty/SP Savita.png" },
-  { name: "Shane Gomes", image: "/images/faculty/Shane Gomes.png" },
-  { name: "Sidhant Tiwari", image: "/images/faculty/Sidhant Tiwari.png" },
-  { name: "Sujata Banerjee", image: "/images/faculty/Sujata Banerjee.png" },
-  { name: "Sujata Verma", image: "/images/faculty/Sujata Verma.png" },
-  { name: "Sunil Pandey", image: "/images/faculty/Sunil Pandey.png" },
-  { name: "Vaishnavi Tiwari", image: "/images/faculty/Vaishnavi Tiwari.png" },
-  { name: "Vinay Tiwari", image: "/images/faculty/Vinay Tiwari.png" },
-  { name: "ajit Yadav", image: "/images/faculty/ajit Yadav.png" },
-  { name: "munni", image: "/images/faculty/munni.png" },
+  { name: "Madhu Rajpoot", image: "/images/faculty/Madhu Rajpoot.webp" },
+  { name: "Mahima Gupta", image: "/images/faculty/Mahima Gupta.webp" },
+  { name: "Mayank Shukla", image: "/images/faculty/Mayank Shukla.webp" },
+  { name: "Poonam Mishra", image: "/images/faculty/Poonam Mishra.webp" },
+  { name: "Poonam Srivastav", image: "/images/faculty/Poonam Srivastav.webp" },
+  { name: "Ram Avtar Verma", image: "/images/faculty/Ram Avtar Verma.webp" },
+  { name: "RinkiPal", image: "/images/faculty/RinkiPal.webp" },
+  { name: "Ruchi Tripathi", image: "/images/faculty/Ruchi Tripathi.webp" },
+  { name: "SP Savita", image: "/images/faculty/SP Savita.webp" },
+  { name: "Shane Gomes", image: "/images/faculty/Shane Gomes.webp" },
+  { name: "Sidhant Tiwari", image: "/images/faculty/Sidhant Tiwari.webp" },
+  { name: "Sujata Banerjee", image: "/images/faculty/Sujata Banerjee.webp" },
+  { name: "Sujata Verma", image: "/images/faculty/Sujata Verma.webp" },
+  { name: "Sunil Pandey", image: "/images/faculty/Sunil Pandey.webp" },
+  { name: "Vaishnavi Tiwari", image: "/images/faculty/Vaishnavi Tiwari.webp" },
+  { name: "Vinay Tiwari", image: "/images/faculty/Vinay Tiwari.webp" },
+  { name: "ajit Yadav", image: "/images/faculty/ajit Yadav.webp" },
+  { name: "munni", image: "/images/faculty/munni.webp" },
 ];
 
 export default function FacultyGalleryPage() {
@@ -63,13 +66,13 @@ export default function FacultyGalleryPage() {
         />
 
         <Reveal className="mt-12">
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {facultyMembers.map((member) => (
-              <article
+              <div
                 key={member.name}
-                className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm"
+                className="flex flex-col items-center gap-4"
               >
-                <div className="relative aspect-[4/5] w-full">
+                <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-border bg-card shadow-lg">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -77,12 +80,12 @@ export default function FacultyGalleryPage() {
                     className="object-cover"
                   />
                 </div>
-                <div className="p-4">
+                <div className="text-center">
                   <h2 className="font-heading text-lg font-semibold text-primary">
                     {member.name}
                   </h2>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </Reveal>

@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { SectionHeading } from "@/components/section-heading";
 import { Reveal } from "@/components/reveal";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 type Category = "activities" | "sports" | "ncc" | "celebrations";
 
@@ -17,137 +18,137 @@ interface GalleryImage {
 const gallery: Record<Category, GalleryImage[]> = {
   activities: [
     {
-      src: "/images/activities/IMG_4953.JPG",
+      src: "/images/activities/IMG_4953.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/IMG_4955.JPG",
+      src: "/images/activities/IMG_4955.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/IMG_4959.JPG",
+      src: "/images/activities/IMG_4959.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/IMG_4962.JPG",
+      src: "/images/activities/IMG_4962.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/IMG_4962a.jpg",
+      src: "/images/activities/IMG_4962a.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/IMG_4973.JPG",
+      src: "/images/activities/IMG_4973.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/IMG_4973a.jpg",
+      src: "/images/activities/IMG_4973a.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/IMG_4974a.jpg",
+      src: "/images/activities/IMG_4974a.webp",
       alt: "Students participating in a school activity",
     },
     {
-      src: "/images/activities/gallery-activities-1.png",
+      src: "/images/activities/gallery-activities-1.webp",
       alt: "Students doing a hands-on robotics and science activity",
     },
     {
-      src: "/images/activities/gallery-activities-2.png",
+      src: "/images/activities/gallery-activities-2.webp",
       alt: "Students learning in a modern smart classroom",
     },
   ],
   sports: [
     {
-      src: "/images/sports/gallery-sports-1.png",
+      src: "/images/sports/gallery-sports-1.webp",
       alt: "Student practicing archery on the sports ground",
     },
     {
-      src: "/images/sports/gallery-sports-2.png",
+      src: "/images/sports/gallery-sports-2.webp",
       alt: "Children doing physical fitness drills on the playground",
     },
   ],
   ncc: [
     {
-      src: "/images/ncc/IMG_4591.JPG",
+      src: "/images/ncc/IMG_4591.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4591.png",
+      src: "/images/ncc/IMG_4591.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4598.JPG",
+      src: "/images/ncc/IMG_4598.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4598.png",
+      src: "/images/ncc/IMG_4598.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4609.JPG",
+      src: "/images/ncc/IMG_4609.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4609.png",
+      src: "/images/ncc/IMG_4609.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4633.JPG",
+      src: "/images/ncc/IMG_4633.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4633.png",
+      src: "/images/ncc/IMG_4633.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4665.JPG",
+      src: "/images/ncc/IMG_4665.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4665.png",
+      src: "/images/ncc/IMG_4665.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4669.JPG",
+      src: "/images/ncc/IMG_4669.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4669.png",
+      src: "/images/ncc/IMG_4669.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4673.JPG",
+      src: "/images/ncc/IMG_4673.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4682.JPG",
+      src: "/images/ncc/IMG_4682.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_5118.JPG",
+      src: "/images/ncc/IMG_5118.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_5730.JPG",
+      src: "/images/ncc/IMG_5730.webp",
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/gallery-ncc-1.png",
+      src: "/images/ncc/gallery-ncc-1.webp",
       alt: "NCC cadets standing in disciplined formation",
     },
     {
-      src: "/images/ncc/gallery-ncc-2.png",
+      src: "/images/ncc/gallery-ncc-2.webp",
       alt: "NCC cadets marching in a parade with the flag",
     },
   ],
   celebrations: [
     {
-      src: "/images/celebrations/gallery-celebrations-1.png",
+      src: "/images/celebrations/gallery-celebrations-1.webp",
       alt: "Students performing a cultural dance at the annual function",
     },
     {
-      src: "/images/celebrations/gallery-celebrations-2.png",
+      src: "/images/celebrations/gallery-celebrations-2.webp",
       alt: "Students receiving trophies at an award ceremony",
     },
   ],
@@ -219,11 +220,16 @@ export function Gallery() {
                   <div className="mx-auto flex max-w-4xl flex-col gap-4">
                     <div className="relative overflow-hidden rounded-3xl border border-border bg-background shadow-sm">
                       <div className="relative block aspect-[4/3] w-full overflow-hidden">
-                        <img
-                          src={currentImage.src || "/placeholder.svg"}
-                          alt={currentImage.alt}
-                          className="size-full object-cover"
-                        />
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={currentImage.src || "/placeholder.svg"}
+                            alt={currentImage.alt}
+                            fill
+                            sizes="(max-width: 640px) 100vw, 800px"
+                            className="object-cover"
+                            loading={"eager"}
+                          />
+                        </div>
                       </div>
 
                       <button
@@ -263,10 +269,13 @@ export function Gallery() {
                                 "border-primary",
                             )}
                           >
-                            <img
+                            <Image
                               src={image.src || "/placeholder.svg"}
                               alt={image.alt}
-                              className="size-full object-cover"
+                              width={96}
+                              height={72}
+                              className="object-cover"
+                              loading={"lazy"}
                             />
                           </button>
                         ))}
