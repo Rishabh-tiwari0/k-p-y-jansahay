@@ -46,7 +46,7 @@ export function AboutTabs() {
         <Tabs defaultValue="about" className="gap-6">
           <TabsList
             variant="line"
-            className="flex h-auto w-full flex-wrap justify-start gap-2 border-b border-border pb-0"
+            className="flex h-auto w-full flex-wrap justify-start gap-2 border-b border-border pb-0 mb-15 sm:mb-7 lg:mb-0"
           >
             {tabs.map((tab) => (
               <TabsTrigger
