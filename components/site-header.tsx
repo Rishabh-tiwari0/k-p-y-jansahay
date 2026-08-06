@@ -1,22 +1,53 @@
-'use client'
+"use client";
 
-import { useEffect, useState } from 'react'
-import { Clock, Mail, Phone, MapPin, Menu, X, GraduationCap, ChevronDown } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { school, navItems } from '@/lib/site-data'
+import { useEffect, useState } from "react";
+import {
+  Clock,
+  Mail,
+  Phone,
+  MapPin,
+  Menu,
+  X,
+  GraduationCap,
+  ChevronDown,
+  Moon,
+  SunMedium,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { school, navItems } from "@/lib/site-data";
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [openGroup, setOpenGroup] = useState<string | null>(null)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+  const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const storedTheme = window.localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const initialTheme =
+      storedTheme === "dark" || (!storedTheme && prefersDark)
+        ? "dark"
+        : "light";
+    setTheme(initialTheme);
+  }, []);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.classList.toggle("dark", theme === "dark");
+    root.classList.toggle("light", theme === "light");
+    window.localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50">
@@ -28,13 +59,19 @@ export function SiteHeader() {
               <Clock className="size-3.5 text-accent" aria-hidden="true" />
               {school.timing}
             </span>
-            <a href={`mailto:${school.email}`} className="flex items-center gap-1.5 hover:text-accent">
+            <a
+              href={`mailto:${school.email}`}
+              className="flex items-center gap-1.5 hover:text-accent"
+            >
               <Mail className="size-3.5 text-accent" aria-hidden="true" />
               {school.email}
             </a>
           </div>
           <div className="flex items-center gap-5">
-            <a href={`tel:${school.phone}`} className="flex items-center gap-1.5 hover:text-accent">
+            <a
+              href={`tel:${school.phone}`}
+              className="flex items-center gap-1.5 hover:text-accent"
+            >
               <Phone className="size-3.5 text-accent" aria-hidden="true" />
               {school.phoneDisplay}
             </a>
@@ -49,14 +86,17 @@ export function SiteHeader() {
       {/* Main nav */}
       <div
         className={cn(
-          'border-b border-border/70 bg-background/95 backdrop-blur transition-shadow',
-          scrolled && 'shadow-md',
+          "border-b border-border/70 bg-background/95 backdrop-blur transition-shadow",
+          scrolled && "shadow-md",
         )}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
           <a href="#home" className="flex items-center gap-3">
             <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-              <GraduationCap className="size-6 text-accent" aria-hidden="true" />
+              <GraduationCap
+                className="size-6 text-accent"
+                aria-hidden="true"
+              />
             </span>
             <span className="flex flex-col leading-tight">
               <span className="font-heading text-sm font-bold text-primary sm:text-base">
@@ -78,7 +118,10 @@ export function SiteHeader() {
                 >
                   {item.label}
                   {item.children && (
-                    <ChevronDown className="size-3.5 transition-transform group-hover:rotate-180" aria-hidden="true" />
+                    <ChevronDown
+                      className="size-3.5 transition-transform group-hover:rotate-180"
+                      aria-hidden="true"
+                    />
                   )}
                 </a>
                 {item.children && (
@@ -99,6 +142,24 @@ export function SiteHeader() {
           </ul>
 
           <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() =>
+                setTheme((value) => (value === "dark" ? "light" : "dark"))
+              }
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-background text-foreground transition hover:bg-muted/80 focus-visible:border-ring focus-visible:ring-2 focus-visible:ring-ring/50"
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+            >
+              {theme === "dark" ? (
+                <SunMedium className="size-5" />
+              ) : (
+                <Moon className="size-5" />
+              )}
+            </button>
             <Button
               size="lg"
               className="hidden bg-maroon text-maroon-foreground hover:bg-maroon/90 md:inline-flex"
@@ -108,10 +169,14 @@ export function SiteHeader() {
               type="button"
               onClick={() => setMobileOpen((v) => !v)}
               className="inline-flex size-10 items-center justify-center rounded-lg border border-border text-primary xl:hidden"
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
             >
-              {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+              {mobileOpen ? (
+                <X className="size-5" />
+              ) : (
+                <Menu className="size-5" />
+              )}
             </button>
           </div>
         </nav>
@@ -121,7 +186,10 @@ export function SiteHeader() {
           <div className="border-t border-border bg-card xl:hidden">
             <ul className="mx-auto max-w-7xl px-4 py-3">
               {navItems.map((item) => (
-                <li key={item.label} className="border-b border-border/60 last:border-0">
+                <li
+                  key={item.label}
+                  className="border-b border-border/60 last:border-0"
+                >
                   <div className="flex items-center justify-between">
                     <a
                       href={item.href}
@@ -133,12 +201,19 @@ export function SiteHeader() {
                     {item.children && (
                       <button
                         type="button"
-                        onClick={() => setOpenGroup(openGroup === item.label ? null : item.label)}
+                        onClick={() =>
+                          setOpenGroup(
+                            openGroup === item.label ? null : item.label,
+                          )
+                        }
                         className="p-3 text-muted-foreground"
                         aria-label={`Toggle ${item.label} submenu`}
                       >
                         <ChevronDown
-                          className={cn('size-4 transition-transform', openGroup === item.label && 'rotate-180')}
+                          className={cn(
+                            "size-4 transition-transform",
+                            openGroup === item.label && "rotate-180",
+                          )}
                         />
                       </button>
                     )}
@@ -163,7 +238,11 @@ export function SiteHeader() {
                 <Button
                   className="w-full bg-maroon text-maroon-foreground hover:bg-maroon/90"
                   size="lg"
-                  render={<a href="#admission" onClick={() => setMobileOpen(false)}>Apply Now</a>}
+                  render={
+                    <a href="#admission" onClick={() => setMobileOpen(false)}>
+                      Apply Now
+                    </a>
+                  }
                 />
               </li>
             </ul>
@@ -171,5 +250,5 @@ export function SiteHeader() {
         )}
       </div>
     </header>
-  )
+  );
 }

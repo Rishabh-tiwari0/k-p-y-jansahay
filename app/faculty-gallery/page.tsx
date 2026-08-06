@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -49,11 +52,27 @@ const facultyMembers = [
 ];
 
 export default function FacultyGalleryPage() {
+  useEffect(() => {
+    const storedTheme = window.localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const initialTheme =
+      storedTheme === "dark" || (!storedTheme && prefersDark)
+        ? "dark"
+        : "light";
+    document.documentElement.classList.toggle("dark", initialTheme === "dark");
+    document.documentElement.classList.toggle(
+      "light",
+      initialTheme === "light",
+    );
+  }, []);
+
   return (
     <main className="min-h-screen bg-secondary/30">
       <Link
         href="/"
-        className="fixed left-4 top-4 z-50 inline-flex items-center rounded-full border border-border bg-background/95 px-4 py-2 text-sm font-semibold text-primary shadow-lg backdrop-blur transition-all duration-300 ease-out transform-gpu will-change-transform hover:-translate-y-0.5 hover:bg-background motion-reduce:transition-none motion-reduce:transform-none"
+        className="fixed left-4 top-4 z-50 inline-flex items-center rounded-full border border-border bg-background/95 px-4 py-2 text-sm font-semibold text-foreground shadow-lg backdrop-blur transition-all duration-300 ease-out transform-gpu will-change-transform hover:-translate-y-0.5 hover:bg-muted/80 motion-reduce:transition-none motion-reduce:transform-none"
       >
         ← Back to Main Website
       </Link>
@@ -72,12 +91,14 @@ export default function FacultyGalleryPage() {
                 key={member.name}
                 className="flex flex-col items-center gap-4"
               >
-                <div className="relative h-64 w-64 overflow-hidden rounded-full border-4 border-border bg-card shadow-lg">
+                <div className="relative h-72 w-56 overflow-hidden rounded-full border-4 border-border shadow-lg bg-white">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    sizes="(max-width: 640px) 200px, (max-width: 1024px) 224px, 224px"
+                    className="object-cover object-center"
+                    loading="lazy"
                   />
                 </div>
                 <div className="text-center">
