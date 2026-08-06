@@ -206,8 +206,6 @@ export function AboutTabs() {
                 <div className="mt-4">
                   <a
                     href="/faculty-gallery"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-semibold text-accent hover:underline"
                   >
                     View Faculty Gallery →
