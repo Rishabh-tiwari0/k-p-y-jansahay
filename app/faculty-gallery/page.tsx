@@ -70,39 +70,43 @@ export default function FacultyGalleryPage() {
 
   return (
     <main className="min-h-screen bg-secondary/30">
+      {/* Back link: compact on mobile, roomier from sm up */}
       <Link
         href="/"
-        className="fixed left-4 top-4 z-50 inline-flex items-center rounded-full border border-border bg-background/95 px-4 py-2 text-sm font-semibold text-foreground shadow-lg backdrop-blur transition-all duration-300 ease-out transform-gpu will-change-transform hover:-translate-y-0.5 hover:bg-muted/80 motion-reduce:transition-none motion-reduce:transform-none"
+        className="fixed left-3 top-3 z-50 inline-flex items-center rounded-full border border-border bg-background/95 px-3 py-1.5 text-xs font-semibold text-foreground shadow-lg backdrop-blur transition-all duration-300 ease-out transform-gpu will-change-transform hover:-translate-y-0.5 hover:bg-muted/80 motion-reduce:transition-none motion-reduce:transform-none sm:left-4 sm:top-4 sm:px-4 sm:py-2 sm:text-sm"
       >
         ← Back to Main Website
       </Link>
 
-      <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:py-24">
+      {/* Section padding: tight on mobile, expands on larger screens */}
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
         <SectionHeading
           eyebrow="Faculty Gallery"
           title="Meet Our Dedicated Educators"
           description="A glimpse of the teachers and mentors who shape every learner’s journey with care and commitment."
         />
 
-        <Reveal className="mt-12">
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <Reveal className="mt-8 sm:mt-12">
+          {/* Mobile-first grid: 2 cols on smallest screens, scaling up */}
+          <div className="grid grid-cols-2 gap-4 xs:gap-5 sm:grid-cols-3 sm:gap-8 lg:grid-cols-4 xl:grid-cols-5">
             {facultyMembers.map((member) => (
               <div
                 key={member.name}
-                className="flex flex-col items-center gap-4"
+                className="flex flex-col items-center gap-2 sm:gap-4"
               >
-                <div className="relative h-72 w-56 overflow-hidden rounded-full border-4 border-border shadow-lg bg-white">
+                {/* Photo frame: smaller on mobile, grows with breakpoints */}
+                <div className="relative aspect-[3/4] w-full max-w-[140px] overflow-hidden rounded-full border-2 border-border bg-white shadow-md sm:max-w-[200px] sm:border-4 sm:shadow-lg lg:max-w-[224px]">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    sizes="(max-width: 640px) 200px, (max-width: 1024px) 224px, 224px"
+                    sizes="(max-width: 480px) 140px, (max-width: 640px) 160px, (max-width: 1024px) 200px, 224px"
                     className="object-cover object-center"
                     loading="lazy"
                   />
                 </div>
                 <div className="text-center">
-                  <h2 className="font-heading text-lg font-semibold text-primary">
+                  <h2 className="font-heading text-sm font-semibold leading-tight text-primary sm:text-base lg:text-lg">
                     {member.name}
                   </h2>
                 </div>
