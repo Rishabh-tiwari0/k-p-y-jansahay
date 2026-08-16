@@ -74,7 +74,7 @@ export default function FacultyGalleryPage() {
         href="/"
         className="fixed left-3 top-3 z-50 inline-flex items-center rounded-full border border-border bg-background/95 px-3 py-1.5 text-xs font-semibold text-foreground shadow-lg backdrop-blur transition-all duration-300 ease-out transform-gpu will-change-transform hover:-translate-y-0.5 hover:bg-muted/80 motion-reduce:transition-none motion-reduce:transform-none sm:left-4 sm:top-4 sm:px-4 sm:py-2 sm:text-sm"
       >
-        ← Back to Main Website
+        ← Back
       </Link>
 
       {/* Section padding: tight on mobile, expands on larger screens */}

@@ -74,19 +74,7 @@ const gallery: Record<Category, GalleryImage[]> = {
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4591.webp",
-      alt: "NCC cadets in a school event",
-    },
-    {
       src: "/images/ncc/IMG_4598.webp",
-      alt: "NCC cadets in a school event",
-    },
-    {
-      src: "/images/ncc/IMG_4598.webp",
-      alt: "NCC cadets in a school event",
-    },
-    {
-      src: "/images/ncc/IMG_4609.webp",
       alt: "NCC cadets in a school event",
     },
     {
@@ -98,19 +86,7 @@ const gallery: Record<Category, GalleryImage[]> = {
       alt: "NCC cadets in a school event",
     },
     {
-      src: "/images/ncc/IMG_4633.webp",
-      alt: "NCC cadets in a school event",
-    },
-    {
       src: "/images/ncc/IMG_4665.webp",
-      alt: "NCC cadets in a school event",
-    },
-    {
-      src: "/images/ncc/IMG_4665.webp",
-      alt: "NCC cadets in a school event",
-    },
-    {
-      src: "/images/ncc/IMG_4669.webp",
       alt: "NCC cadets in a school event",
     },
     {
@@ -255,7 +231,7 @@ export function Gallery() {
                       <div className="flex flex-wrap gap-2">
                         {images.map((image, index) => (
                           <button
-                            key={image.src}
+                            key={`${image.src}-${index}`}
                             type="button"
                             onClick={() =>
                               setCurrentImageIndex((prev) => ({
