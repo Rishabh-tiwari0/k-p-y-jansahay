@@ -30,7 +30,6 @@ const facultyMembers = [
   },
   { name: "Jyoti Pandey", image: "/images/faculty/Jyoti Pandey.webp" },
   { name: "KP Singh", image: "/images/faculty/KP Singh.webp" },
-  { name: "Layer 0", image: "/images/faculty/Layer 0.jpg" },
   { name: "Madhu Rajpoot", image: "/images/faculty/Madhu Rajpoot.webp" },
   { name: "Mahima Gupta", image: "/images/faculty/Mahima Gupta.webp" },
   { name: "Mayank Shukla", image: "/images/faculty/Mayank Shukla.webp" },
