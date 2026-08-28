@@ -323,7 +323,7 @@ export default function FacultyGalleryPage() {
         <SectionHeading
           eyebrow="Faculty Gallery"
           title="Meet Our Dedicated Educators"
-          description="A glimpse of the teachers and mentors who shape every learner’s journey with care and commitment, arranged by their role at the college."
+          description="A glimpse of the teachers and mentors who shape every learner’s journey with care and commitment."
         />
 
         <div className="mt-12 flex flex-col gap-14 sm:mt-16 sm:gap-20">
@@ -336,7 +336,10 @@ export default function FacultyGalleryPage() {
                   className="mb-6 flex items-center gap-3 sm:mb-8"
                 >
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent/10 text-accent sm:h-11 sm:w-11">
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5" aria-hidden="true" />
+                    <Icon
+                      className="h-4 w-4 sm:h-5 sm:w-5"
+                      aria-hidden="true"
+                    />
                   </span>
                   <div className="flex items-center gap-3">
                     <h2 className="font-heading text-lg font-bold text-primary sm:text-xl lg:text-2xl">
@@ -362,7 +365,10 @@ export default function FacultyGalleryPage() {
                 </Reveal>
 
                 {index < facultySections.length - 1 && (
-                  <div className="mt-14 h-px w-full bg-border/60 sm:mt-20" aria-hidden="true" />
+                  <div
+                    className="mt-14 h-px w-full bg-border/60 sm:mt-20"
+                    aria-hidden="true"
+                  />
                 )}
               </div>
             );
