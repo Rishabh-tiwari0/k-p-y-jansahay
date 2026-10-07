@@ -1,19 +1,20 @@
-import { GraduationCap, Globe, Share2, Send, MapPin, Phone, Mail } from 'lucide-react'
-import { school } from '@/lib/site-data'
+import Image from "next/image";
+import { Globe, Share2, Send, MapPin, Phone, Mail } from "lucide-react";
+import { school } from "@/lib/site-data";
 
 const quickLinks = [
-  { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Admissions', href: '#admission' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact Us', href: '#contact' },
-]
+  { label: "Home", href: "#home" },
+  { label: "About Us", href: "#about" },
+  { label: "Admissions", href: "#admission" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Contact Us", href: "#contact" },
+];
 
 const socials = [
-  { icon: Globe, label: 'Facebook', href: '#' },
-  { icon: Share2, label: 'Instagram', href: '#' },
-  { icon: Send, label: 'YouTube', href: '#' },
-]
+  { icon: Globe, label: "Facebook", href: "#" },
+  { icon: Share2, label: "Instagram", href: "#" },
+  { icon: Send, label: "YouTube", href: "#" },
+];
 
 export function SiteFooter() {
   return (
@@ -21,18 +22,28 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4">
         <div className="flex flex-col gap-4 lg:col-span-2">
           <div className="flex items-center gap-3">
-            <span className="flex size-11 items-center justify-center rounded-xl bg-primary-foreground/10 text-accent">
-              <GraduationCap className="size-6" aria-hidden="true" />
-            </span>
+            <div className="flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-primary-foreground/10 ring-1 ring-primary-foreground/15">
+              <Image
+                src="/KPYJS-Inter-College-Logo-All-Formats-Final/logo_package/light/KPYJS-logo-light.webp"
+                alt={`${school.name} logo`}
+                width={120}
+                height={60}
+                className="h-10 w-auto object-contain"
+              />
+            </div>
             <div className="flex flex-col leading-tight">
-              <span className="font-heading text-base font-bold">{school.name}</span>
-              <span className="text-xs font-medium text-accent">{school.tagline}</span>
+              <span className="font-heading text-base font-bold">
+                {school.name}
+              </span>
+              <span className="text-xs font-medium text-accent">
+                {school.tagline}
+              </span>
             </div>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-primary-foreground/75">
-            A UP Board-affiliated school in Kanpur serving Playgroup to Class XII. Since 1999, we
-            have delivered affordable excellence — blending future-ready learning with discipline
-            and values for every child.
+            A UP Board-affiliated school in Kanpur serving Playgroup to Class
+            XII. Since 1999, we have delivered affordable excellence — blending
+            future-ready learning with discipline and values for every child.
           </p>
           <div className="flex gap-2">
             {socials.map((social) => (
@@ -68,14 +79,23 @@ export function SiteFooter() {
             Reach Us
           </h3>
           <p className="flex items-start gap-2 text-sm text-primary-foreground/75">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+            <MapPin
+              className="mt-0.5 size-4 shrink-0 text-accent"
+              aria-hidden="true"
+            />
             {school.address}
           </p>
-          <a href={`tel:${school.phone}`} className="flex items-center gap-2 text-sm text-primary-foreground/75 hover:text-accent">
+          <a
+            href={`tel:${school.phone}`}
+            className="flex items-center gap-2 text-sm text-primary-foreground/75 hover:text-accent"
+          >
             <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
             {school.phoneDisplay}
           </a>
-          <a href={`mailto:${school.email}`} className="flex items-center gap-2 text-sm text-primary-foreground/75 hover:text-accent">
+          <a
+            href={`mailto:${school.email}`}
+            className="flex items-center gap-2 text-sm text-primary-foreground/75 hover:text-accent"
+          >
             <Mail className="size-4 shrink-0 text-accent" aria-hidden="true" />
             {school.email}
           </a>
@@ -88,5 +108,5 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

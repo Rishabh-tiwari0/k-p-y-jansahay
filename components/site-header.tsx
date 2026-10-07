@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import {
   Clock,
@@ -8,7 +9,6 @@ import {
   MapPin,
   Menu,
   X,
-  GraduationCap,
   ChevronDown,
   Moon,
   SunMedium,
@@ -48,6 +48,11 @@ export function SiteHeader() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const logoSrc =
+    theme === "dark"
+      ? "/KPYJS-Inter-College-Logo-All-Formats-Final/logo_package/dark/KPYJS-logo-dark.webp"
+      : "/KPYJS-Inter-College-Logo-All-Formats-Final/logo_package/light/KPYJS-logo-light.webp";
 
   return (
     <header className="sticky top-0 z-50">
@@ -91,13 +96,21 @@ export function SiteHeader() {
         )}
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <a href="#home" className="flex items-center gap-3">
-            <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-              <GraduationCap
-                className="size-6 text-accent"
-                aria-hidden="true"
+          <a
+            href="#home"
+            className="flex items-center gap-3"
+            aria-label={school.name}
+          >
+            <div className="flex h-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-background/70 ring-1 ring-border/80">
+              <Image
+                src={logoSrc}
+                alt={`${school.name} logo`}
+                width={112}
+                height={56}
+                priority
+                className="h-10 w-auto object-contain"
               />
-            </span>
+            </div>
             <span className="flex flex-col leading-tight">
               <span className="font-heading text-sm font-bold text-primary sm:text-base">
                 {school.name}
